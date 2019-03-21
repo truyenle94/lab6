@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Hello Vue</h1>
+        <p>
+            {{message|uppercase}}
+        </p>
+
+        <p>
+            The message is {{message.length}} letters long
+        </p>
+
+        <p>
+            The message has {{message.length - 9}} exclamation points
+        </p>
+
+        <p>
+            My favorite animal is a {{favoriteAnimal}}
+        </p>
+
+        <p>This class is {{thisClass}}</p>
+        <button v-on:click="addExclamation">Add !</button>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hi there!',
+                favoriteAnimal: 'dog',
+                thisClass: 'Web Programming'
+            },
+            methods:{
+                addExclamation: function(event){
+                    this.message += '!'
+                }
+            },
+            filters:{
+                uppercase: function(string){
+                    return string.toUpperCase()
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
